@@ -6,7 +6,7 @@
 node_modules
 bower_components
 npm-debug.log
-
+db.js
 # Local development
 *.env
 *.dev
