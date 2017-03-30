@@ -1,8 +1,8 @@
 // to be added to git ignore
 
 var user = {
-  username: 'Ariel',
-  password: 'Ariel;'
-}
+  username: process.env.POSTGRES_USER,
+  password: ''
+};
 
 module.exports = user;
