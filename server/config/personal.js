@@ -2,7 +2,7 @@
 
 var user = {
   username: 'Ariel',
-  password: 'Ariel;'
+  password: 'Ariel'
 }
 
 module.exports = user;
