@@ -11,3 +11,4 @@ personal.js
 # Local development
 *.env
 *.dev
+personal.js
