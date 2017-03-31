@@ -15,8 +15,8 @@ angular.module('stackets', [
   'auth0',
   'ui.ace',
   // 'auth0.lock',
-  'angular-jwt',
-  'angular-storage'
+  // 'angular-jwt',
+  // 'angular-storage'
 ])
 .config(function ($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, authProvider) {
 

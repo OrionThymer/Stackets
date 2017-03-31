@@ -85,7 +85,6 @@ Snippet.sync()
 // .then(() => CodeSample.belongsTo(Snippet, {foreignkey: 'SnippetId'}))
 // .then(() => CodeSample.sync())
 .then(() => Snippet.belongsTo(Topic, {foreignkey: { name: 'TopicId'}}))
-.then(() => Snippet.belongsTo(User, {foreignkey: { name: 'UserId'}}))
 .then(() => Topic.hasMany(Snippet, {foreignkey: { name: 'TopicId'}}))
 .then(() => Topic.sync())
 .then(() => Snippet.belongsTo(Language, {foreignkey: 'LanguageId'}))
@@ -94,6 +93,8 @@ Snippet.sync()
 .then(() => Tag.belongsToMany(Snippet, {through: SnippetTag }))
 .then(() => Snippet.belongsToMany(Tag, {through: SnippetTag }))
 .then(() => Tag.sync())
+.then(() => User.hasMany(Snippet, {foreignkey: { name: 'UserId'}}))
+.then(() => Snippet.belongsTo(User, {foreignkey: { name: 'UserId'}}))
 .then(() => User.belongsToMany(Snippet, {through: UserSnippetFavorite }))
 .then(() => Snippet.belongsToMany(User, {through: UserSnippetFavorite }))
 .then(() => User.sync())
@@ -109,6 +110,6 @@ module.exports = {
   Language: Language,
   Tag: Tag,
   SnippetTag: SnippetTag,
-  User: User,
+  User: User
   UserSnippetFavorite: UserSnippetFavorite
 };
