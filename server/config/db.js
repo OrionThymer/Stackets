@@ -95,8 +95,8 @@ Snippet.sync()
 .then(() => Tag.sync())
 .then(() => User.hasMany(Snippet, {foreignkey: { name: 'UserId'}}))
 .then(() => Snippet.belongsTo(User, {foreignkey: { name: 'UserId'}}))
-// .then(() => User.belongsToMany(Snippet, {through: UserSnippetFavorite }))
-// .then(() => Snippet.belongsToMany(User, {through: UserSnippetFavorite }))
+.then(() => User.belongsToMany(Snippet, {through: UserSnippetFavorite }))
+.then(() => Snippet.belongsToMany(User, {through: UserSnippetFavorite }))
 .then(() => User.sync())
 .then(() => Snippet.sync())
 .then(() => SnippetTag.sync())
@@ -111,5 +111,5 @@ module.exports = {
   Tag: Tag,
   SnippetTag: SnippetTag,
   User: User
-  // UserSnippetFavorite: UserSnippetFavorite
+  UserSnippetFavorite: UserSnippetFavorite
 };
