@@ -24,7 +24,7 @@ angular.module('stackets.addSnippet', ['ui.ace'])
 //the method below will add a snippet using the add snippet form.
     $scope.addSnippet = function (form) {
       this.snippet.snippet = JSON.stringify($scope.code);
-      this.snippet.codeSample = JSON.stringify($scope.codeSample);
+      // this.snippet.codeSample = JSON.stringify($scope.codeSample);
       console.log('Explanation:', this.snippet.explanation);
       this.snippet.explanation = JSON.stringify(this.snippet.explanation);
       console.log('Stringified Explanation:', this.snippet.explanation);
@@ -99,9 +99,9 @@ angular.module('stackets.addSnippet', ['ui.ace'])
       // Load the snippet's code
       _session.setValue('');
       // Events
-      _session.on("change", function(e) {
-        $scope.codeSample = _session.getValue();
-      });
+      // _session.on("change", function(e) {
+      //   $scope.codeSample = _session.getValue();
+      // });
     };
 
   });
