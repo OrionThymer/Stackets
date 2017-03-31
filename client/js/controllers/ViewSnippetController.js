@@ -5,13 +5,13 @@ angular.module('stackets.view', [])
     console.log('Viewing Snippet No. ', $stateParams.id);
     $scope.snippet = {};
     $scope.code = '';
-    $scope.codeSample = '';
+    // $scope.codeSample = '';
     $scope.explanation = '';
 
     Snippets.getSnippetById($stateParams.id).then(function (snippet) {
       $scope.snippet = snippet;
       $scope.code = JSON.parse(snippet.snippet);
-      $scope.codeSample = JSON.parse(snippet.codeSample);
+      // $scope.codeSample = JSON.parse(snippet.codeSample);
       $scope.explanation = JSON.parse(snippet.explanation);
       //console.log('Metadata retrieved from Snippets service: ', JSON.stringify(topics));
     });
@@ -76,8 +76,8 @@ angular.module('stackets.view', [])
       // Load the snippet's code
       _session.setValue('');
       // Events
-      _session.on("change", function(e) {
-        $scope.codeSample = _session.getValue();
-      });
+      // _session.on("change", function(e) {
+        // $scope.codeSample = _session.getValue();
+      // });
     };
   });
