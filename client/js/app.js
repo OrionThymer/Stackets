@@ -13,31 +13,33 @@ angular.module('stackets', [
   'stackets.featuredSnippet',
   'stackets.login',
   'auth0',
-  'ui.ace'
-  // 'auth0.lock', 
-  // 'angular-jwt'
+  'ui.ace',
+  // 'auth0.lock',
+  'angular-jwt',
+  'angular-storage'
 ])
-.config(function ($stateProvider, $locationProvider, $urlRouterProvider, authProvider) {
-  
-// RestangularProvider, authProvider, $httpProvider, 
-  authProvider.init({         
-    domain: 'asalem.auth0.com',     
-    clientID: 'QRAUurHNRwxKOgSu4Igee9CG2VkjCQVX', 
+.config(function ($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, authProvider) {
+
+// RestangularProvider, authProvider
+  authProvider.init({
+    domain: 'asalem.auth0.com',
+    clientID: 'QRAUurHNRwxKOgSu4Igee9CG2VkjCQVX',
     callbackURL: location.href,
     loginState: 'login'
   });
-  // var url = 'https://stackets-orion.herokuapp.com/'; 
+
+  // var url = 'https://stackets-orion.herokuapp.com/';
   // var local = 'http://localhost:3000';
   // RestangularProvider.setBaseUrl(local);
 
-  // $httpProvider.interceptors.push('authInterceptor');
+  $httpProvider.interceptors.push('authInterceptor');
 
-  // lockProvider.init({       
-  //   clientID: 'QRAUurHNRwxKOgSu4Igee9CG2VkjCQVX',     
-  //   domain: 'asalem.auth0.com',       
-  //   options: {         
-  //     _idTokenVerification: false       
-  //   }     
+  // lockProvider.init({
+  //   clientID: 'QRAUurHNRwxKOgSu4Igee9CG2VkjCQVX',
+  //   domain: 'asalem.auth0.com',
+  //   options: {
+  //     _idTokenVerification: false
+  //   }
   // });
 
   $locationProvider
@@ -45,7 +47,7 @@ angular.module('stackets', [
       enabled: true,
       requireBase: false
     });
-  
+
   $stateProvider
     .state('home', {
       name: 'home',
