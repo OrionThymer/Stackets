@@ -40,4 +40,11 @@ module.exports = function(app, express) {
   app.get('/*', function(req, res) {
     res.redirect('/');
   });
+
+
+  //add user to User table
+  // app.post('/api/users', userController.post);
+  //get user's created & favorited Snippets
+  // app.get('/api/snippets/:userId', snippetsController.getById);
+
 };
