@@ -1,4 +1,6 @@
 angular.module('stackets', [
+  'ui.router',
+  // 'restangular',
   'stackets.services',
   'stackets.searchBar',
   'stackets.searchResults',
@@ -9,15 +11,41 @@ angular.module('stackets', [
   'stackets.recentSnippets',
   'stackets.addSnippet',
   'stackets.featuredSnippet',
-  'ui.router',
+  'stackets.login',
+  'auth0',
   'ui.ace'
+  // 'auth0.lock', 
+  // 'angular-jwt'
 ])
-.config(function ($stateProvider, $locationProvider) {
+.config(function ($stateProvider, $locationProvider, $urlRouterProvider, authProvider) {
+  
+// RestangularProvider, authProvider, $httpProvider, 
+  authProvider.init({         
+    domain: 'asalem.auth0.com',     
+    clientID: 'QRAUurHNRwxKOgSu4Igee9CG2VkjCQVX', 
+    callbackURL: location.href,
+    loginState: 'login'
+  });
+  // var url = 'https://stackets-orion.herokuapp.com/'; 
+  // var local = 'http://localhost:3000';
+  // RestangularProvider.setBaseUrl(local);
+
+  // $httpProvider.interceptors.push('authInterceptor');
+
+  // lockProvider.init({       
+  //   clientID: 'QRAUurHNRwxKOgSu4Igee9CG2VkjCQVX',     
+  //   domain: 'asalem.auth0.com',       
+  //   options: {         
+  //     _idTokenVerification: false       
+  //   }     
+  // });
+
   $locationProvider
     .html5Mode({
       enabled: true,
       requireBase: false
     });
+  
   $stateProvider
     .state('home', {
       name: 'home',
@@ -38,6 +66,15 @@ angular.module('stackets', [
         'searchBarView': {
           controller: 'SearchBarController',
           templateUrl: '../partials/search-bar.html'
+        }
+      }
+    })
+    .state('login', {
+      url: '/login',
+      views: {
+        'loginView': {
+          controller: 'LoginCtrl',
+          templateUrl: '../partials/login.html'
         }
       }
     })
@@ -86,4 +123,9 @@ angular.module('stackets', [
         }
       }
     });
+  $urlRouterProvider.otherwise('/');
+})
+
+.run(function(auth) {
+  auth.hookEvents();
 });
