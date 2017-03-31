@@ -1,4 +1,4 @@
-var user = require('./personal.js');
+// var user = require('./personal.js');
 
 var Sequelize = require('sequelize');
 //initialize Sequelize with postgres with remote url
