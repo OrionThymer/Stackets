@@ -55,15 +55,15 @@ module.exports = {
 
     var samples;
 
-    db.CodeSample.findAll({ where: { "SnippetId": Number(req.params.id) } })
-      .then(function(codesamples) {
-        // Samples will be a simple array of objects, even if only one code sample
-        // This is to provide scalability for multiple code samples in one snippet in the future
-        // [ "(code sample 1)", "(code sample 2)", ... ]
-        samples = codesamples.map(function(sample) {
-          return sample.dataValues.codeSample;
-        });
-      });
+    // db.CodeSample.findAll({ where: { "SnippetId": Number(req.params.id) } })
+    //   .then(function(codesamples) {
+    //     // Samples will be a simple array of objects, even if only one code sample
+    //     // This is to provide scalability for multiple code samples in one snippet in the future
+    //     // [ "(code sample 1)", "(code sample 2)", ... ]
+    //     samples = codesamples.map(function(sample) {
+    //       return sample.dataValues.codeSample;
+    //     });
+    //   });
 
     db.Snippet.findOne({
       include: [
@@ -90,7 +90,7 @@ module.exports = {
           id: snipVals.id,
           title: snipVals.title,
           snippet: snipVals.snippet,
-          "codeSample": samples,
+          // "codeSample": samples,
           'shortDescription': snipVals.shortDescription,
           explanation: snipVals.explanation,
           'createdAt': snipVals.createdAt,
@@ -172,10 +172,10 @@ module.exports = {
         });
 
         // ALSO ADD CODE SAMPLE TO CodeSample table with new Snippet ID
-        db.CodeSample.create({
-          "codeSample": req.body.codeSample,
-          "SnippetId": data.id
-        });
+        // db.CodeSample.create({
+        //   "codeSample": req.body.codeSample,
+        //   "SnippetId": data.id
+        // });
 
         res.status(201).json(data);
       });
