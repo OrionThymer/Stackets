@@ -1,5 +1,5 @@
 angular.module('stackets.services', [])
-  .factory('Snippets', function ($http, $cookieStore) {
+  .factory('Snippets', function ($http, $cookieStore, auth) {
     var data;
     var topics;
     var tags;
@@ -92,6 +92,17 @@ angular.module('stackets.services', [])
       });
     };
 
+    $(document).ready(function() {
+      $('.nav-visibility').css('display', 'none');
+      $('.login-visibility').css('display', 'block');
+      $('#logout').on('click', function() {
+        $('.nav-visibility').css('display', 'none');
+        $('.login-visibility').css('display', 'block');
+        $cookieStore.remove('activeUser');
+        auth.signout();
+      })
+    })
+
     return {
       addSnippet: addSnippet,
       getAllSnippets: getAllSnippets,
@@ -106,3 +117,4 @@ angular.module('stackets.services', [])
       getUser: getUser
     };
   });
+
