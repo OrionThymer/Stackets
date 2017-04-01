@@ -6,7 +6,7 @@ module.exports = {
 
   post: function(req, res) {
     var params = {
-      email: req.body
+      email: req.body.email
     };
 
     // tags: { '1': true, '3': true, 9': true }
