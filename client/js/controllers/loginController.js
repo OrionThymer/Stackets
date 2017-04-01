@@ -1,18 +1,14 @@
-angular.module('stackets.login', [
+angular.module('stackets.login', [])
 
-])
-
-.controller('LoginCtrl', function( $scope, auth, $state, $rootScope) {
+.controller('LoginCtrl', function(Snippets, $scope, auth, $state, $rootScope) {
 
   auth.signin({
     popup: true,
     standalone: true,
     chrome: true
   }, function(profile) {
-    // store.set('profile', profile);
+    Snippets.addUser(profile.email);
     console.dir(profile);
-    $rootScope.$on('profile', profile);
-    console.log($rootScope);
     // store.set('profile', profile);
     $state.go('home');
   }, function(error) {
