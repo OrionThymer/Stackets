@@ -8,16 +8,18 @@ angular.module('stackets.services', [])
 
     var getUser = function() {
       return activeUser;
-    }
+    };
 
     var addUser = function(profile) {
       activeUser = profile;
+      console.log('in factory');
+      console.dir(profile);
       return $http({
         method: 'POST',
         url: '/api/users',
-        data: JSON.stringify(profile.email)
+        data: JSON.stringify(profile.nickname)
       });
-    }
+    };
 
     var addSnippet = function (snippet) {
       return $http({
