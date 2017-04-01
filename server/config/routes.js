@@ -8,7 +8,6 @@ var usersController = require('../controllers/users-controller.js');
 
 
 module.exports = function(app, express) {
-  console.log('app:', app, 'express', express)
   //get all the snippets
   app.get('/api/snippets', snippetsController.get);
   //get the most recent snippets

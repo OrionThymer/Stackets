@@ -9,7 +9,10 @@ angular.module('stackets.login', [])
   }, function(profile) {
     Snippets.addUser(profile);
     $cookieStore.put('activeUser', profile);
-    // store.set('profile', profile);
+
+    $('.nav-visibility').css('display', 'block');
+    $('.login-visibility').css('display', 'none');
+    if (Snippets.getUser()) $scope.loggedIn = true;
     $state.go('home');
   }, function(error) {
     console.log("Error logging in", error);
