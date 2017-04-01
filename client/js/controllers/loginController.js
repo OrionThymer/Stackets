@@ -1,6 +1,6 @@
 angular.module('stackets.login', [])
 
-.controller('LoginCtrl', function(Snippets, $scope, auth, $state, $rootScope) {
+.controller('LoginCtrl', function(Snippets, $scope, auth, $state, $rootScope, $cookieStore) {
 
   auth.signin({
     popup: true,
@@ -8,6 +8,7 @@ angular.module('stackets.login', [])
     chrome: true
   }, function(profile) {
     Snippets.addUser(profile.email);
+    $cookieStore.put('activeUser', profile);
     console.dir(profile);
     // store.set('profile', profile);
     $state.go('home');

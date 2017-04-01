@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var seeder = require('../snippetData/seeder.js')
+var seeder = require('../snippetData/seeder.js');
 //initialize express
 var app = express();
 
