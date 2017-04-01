@@ -13,6 +13,7 @@ angular.module('stackets', [
   'stackets.addSnippet',
   'stackets.featuredSnippet',
   'stackets.login',
+  'stackets.profile',
   'auth0',
   'ui.ace'
   // 'auth0.lock',
@@ -112,6 +113,15 @@ angular.module('stackets', [
         'addSnippetView': {
           controller: 'AddSnippetController',
           templateUrl: '../partials/add-snippet.html'
+        }
+      }
+    })
+    .state('user-profile', {
+      url: '/profile',
+      views: {
+        'userView': {
+          controller: 'UserController',
+          templateUrl: '../partials/user-profile.html'
         }
       }
     })
