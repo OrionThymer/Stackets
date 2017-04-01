@@ -9,7 +9,6 @@ angular.module('stackets.login', [])
   }, function(profile) {
     Snippets.addUser(profile);
     $cookieStore.put('activeUser', profile);
-    console.dir(profile);
     // store.set('profile', profile);
     $state.go('home');
   }, function(error) {

@@ -1,23 +1,23 @@
 angular.module('stackets.services', [])
-  .factory('Snippets', function ($http) {
+  .factory('Snippets', function ($http, $cookieStore) {
     var data;
     var topics;
     var tags;
     var languages;
-    var activeUser;
+
 
     var getUser = function() {
-      return activeUser;
+     return $cookieStore.get('activeUser')
     };
 
     var addUser = function(profile) {
-      activeUser = profile;
-      console.log('in factory');
-      console.dir(profile);
+      var profile = {
+        email: profile.email
+      };
       return $http({
         method: 'POST',
         url: '/api/users',
-        data: JSON.stringify(profile.nickname)
+        data: JSON.stringify(profile)
       });
     };
 
