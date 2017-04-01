@@ -4,6 +4,20 @@ angular.module('stackets.services', [])
     var topics;
     var tags;
     var languages;
+    var activeUser;
+
+    var getUser = function() {
+      return activeUser;
+    }
+
+    var addUser = function(profile) {
+      activeUser = profile;
+      return $http({
+        method: 'POST',
+        url: '/api/users',
+        data: JSON.stringify(profile.email)
+      });
+    }
 
     var addSnippet = function (snippet) {
       return $http({
@@ -85,6 +99,8 @@ angular.module('stackets.services', [])
       getRecentSnippets: getRecentSnippets,
       getSnippetById: getSnippetById,
       data: data,
-      topics: topics
+      topics: topics,
+      addUser: addUser,
+      getUser: getUser
     };
   });
