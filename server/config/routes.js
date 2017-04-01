@@ -4,6 +4,7 @@ var tagsController = require('../controllers/tags-controller.js');
 var topicController = require('../controllers/topics-controller.js');
 var languageController = require('../controllers/languages-controller.js');
 var snippetTagsController = require('../controllers/snippet-tags-controller.js');
+var usersController = require('../controllers/users-controller.js');
 
 
 module.exports = function(app, express) {
@@ -15,6 +16,8 @@ module.exports = function(app, express) {
   app.get('/api/snippets/:id', snippetsController.getById);
   //create a new snippet
   app.post('/api/snippets', snippetsController.post);
+  //create a new user
+  app.post('/api/users', usersController.post);
   //get all the tags
   app.get('/api/tags', tagsController.get);
   //get all the topics
