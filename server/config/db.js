@@ -110,6 +110,6 @@ module.exports = {
   Language: Language,
   Tag: Tag,
   SnippetTag: SnippetTag,
-  User: User
+  User: User,
   UserSnippetFavorite: UserSnippetFavorite
 };
