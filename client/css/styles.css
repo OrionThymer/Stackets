@@ -7067,3 +7067,90 @@ pre.explanation {
   display: block;
   white-space: pre-wrap;
 }
+
+
+/*---------------user profile----------------*/
+#profile-left {
+  /*background-color: red;*/
+}
+
+#profile-pic {
+  border: solid 5px #eff0f2;
+  border-radius: 50%;
+  width: 175px;
+  height: 175px;
+  background: white;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin-left: 25px;
+
+}
+
+#user-info {
+  width: 225px;
+  height: 225px;
+  background-color: #f2f2f2;
+  margin-top: -90px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #2C3E50;
+/*  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;*/
+
+}
+
+#profile-right {
+
+}
+
+.ThreeD {
+  box-shadow: 3px 3px 3px #888888;
+}
+
+
+.infoPaneIcon {
+  border: solid 5px #eff0f2;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: white;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin-left: 50px;
+}
+
+.infoPane {
+  width: 200px;
+  height: 100px;
+  background-color: #f2f2f2;
+  margin-top: -45px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: #2C3E50;
+/*  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;*/
+}
+
+.infoPaneInfo {
+  margin-top: -15px;
+}
+
+#infoOne {
+  background-image: url("https://cdn0.iconfinder.com/data/icons/flatico/512/monitor_code__editor-512.png");
+}
+
+#infoTwo {
+  background-image: url("https://cdn4.iconfinder.com/data/icons/modern-ui-circular-outlined/512/ui_outline-11-512.png");
+}
+
+#infoThree {
+  background-image: url("https://0c14fb3e325af6ec6e60-55df70690343c73810e9eb8e0227f4e3.ssl.cf1.rackcdn.com/lindseydiloreto/upvote-like.png");
+}
