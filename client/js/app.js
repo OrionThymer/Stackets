@@ -1,6 +1,7 @@
 angular.module('stackets', [
   'ui.router',
   // 'restangular',
+  'ngCookies',
   'stackets.services',
   'stackets.searchBar',
   'stackets.searchResults',
@@ -13,10 +14,8 @@ angular.module('stackets', [
   'stackets.featuredSnippet',
   'stackets.login',
   'auth0',
-  'ui.ace',
+  'ui.ace'
   // 'auth0.lock',
-  // 'angular-jwt',
-  // 'angular-storage'
 ])
 .config(function ($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, authProvider) {
 
