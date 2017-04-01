@@ -7077,8 +7077,8 @@ pre.explanation {
 #profile-pic {
   border: solid 5px #eff0f2;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
   background: white;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -7087,8 +7087,8 @@ pre.explanation {
 }
 
 #user-info {
-  width: 200px;
-  height: 200px;
+  width: 225px;
+  height: 225px;
   background-color: #f2f2f2;
   margin-top: -90px;
   border-radius: 5px;
