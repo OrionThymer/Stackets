@@ -7,7 +7,7 @@ angular.module('stackets.login', [])
     standalone: true,
     chrome: true
   }, function(profile) {
-    Snippets.addUser(profile.email);
+    Snippets.addUser(profile);
     $cookieStore.put('activeUser', profile);
     console.dir(profile);
     // store.set('profile', profile);
