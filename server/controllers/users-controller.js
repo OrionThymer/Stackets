@@ -15,7 +15,7 @@ module.exports = {
 
     db.User.create(params)
     .then(function (data) {
-      console.log('we added to the user table in the db: ', data);
+      // console.log('we added to the user table in the db: ', data);
       res.status(201);
     });
       // .then(function (data) {
