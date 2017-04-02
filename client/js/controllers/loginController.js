@@ -5,7 +5,9 @@ angular.module('stackets.login', [])
   auth.signin({
     popup: true,
     standalone: true,
-    chrome: true
+    chrome: true,
+    icon: "http://oi63.tinypic.com/2ltk1at.jpg",
+    showIcon: true
   }, function(profile) {
     Snippets.addUser(profile);
     $cookieStore.put('activeUser', profile);
