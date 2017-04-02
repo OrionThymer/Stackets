@@ -6,7 +6,7 @@ if (process.env.DATABASE_URL) {
   var db = new Sequelize(process.env.DATABASE_URL, {dialect: 'postgres', logging: false });
 } else {
   // otherwise initialize Sequelize with postgres on your local machine
-  var db = new Sequelize('stackets', 'Ariel', 'Ariel', {dialect: 'postgres', logging: false });
+  var db = new Sequelize('stackets', process.env.POSTGRES_USER, '', {dialect: 'postgres', logging: false });
 }
 
 //create Snippet table
