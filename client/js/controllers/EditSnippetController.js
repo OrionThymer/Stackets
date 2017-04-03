@@ -2,17 +2,15 @@ angular.module('stackets.editSnippet', ['ui.ace'])
   .controller('EditSnippetController', function ($scope, $location, Snippets, $stateParams, $state, $http) {
     $scope.topics = {};
     $scope.tags = {};
+    $scope.snippet = {};
     $scope.languages = {};
-    $scope.code = '';
+    $scope.snippet.code = '';
     $scope.ace = 'javascript';
 
     Snippets.getSnippetById($stateParams.id).then(function (snippet) {
-      console.log(snippet)
-      $scope.code = JSON.parse(snippet.snippet);
-      $scope.title = snippet.title;
-      $scope.shortDescription = snippet.shortDescription;
-      $scope.explanation = JSON.parse(snippet.explanation);
-
+      console.log(snippet);
+      $scope.snippet = snippet;
+      $scope.snippet.code = JSON.parse(snippet.snippet);
     });
 
     Snippets.getAllTopics().then(function (topics) {
@@ -29,7 +27,7 @@ angular.module('stackets.editSnippet', ['ui.ace'])
     });
 //the method below will add a snippet using the add snippet form.
     $scope.addSnippet = function (form) {
-      this.snippet.snippet = JSON.stringify($scope.code);
+      this.snippet.snippet = JSON.stringify($scope.snippet.code);
       this.snippet.explanation = JSON.stringify(this.snippet.explanation);
       Snippets.addSnippet(this.snippet).then(function(data) {
         $location.path('/snippets/' + data.data.id);
@@ -59,7 +57,7 @@ angular.module('stackets.editSnippet', ['ui.ace'])
     // CDN @ https://cdnjs.com/libraries/ace/
     // Editor font size
       $scope._editor = _editor;
-      document.getElementById('editor').style.fontSize='15px';
+      document.getElementById('editor').style.fontSize='18px';
       // Options
       var _session = _editor.getSession();
       var _renderer = _editor.renderer;
@@ -80,13 +78,15 @@ angular.module('stackets.editSnippet', ['ui.ace'])
       });
     };
 
-
-//upload edited data to database 
-      $scope.update = function() {
-        return $http.put('/api/snippets/' + $stateParams.id + '/edit', $scope.snippet)
-        console.log('Controller is working')
-        $state.go('snippet', {id:$stateParams.id})
-      }
+    // upload edited data to database
+    $scope.update = function() {
+      $scope.snippet.snippet = JSON.stringify($scope.snippet.code);
+      $http.put('/api/snippets/' + $stateParams.id + '/edit',
+        JSON.stringify($scope.snippet)
+      );
+      console.log('editted: ', $scope.snippet);
+      $state.go('snippet', {id:$stateParams.id});
+    };
 
 
   });

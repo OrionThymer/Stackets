@@ -1,35 +1,36 @@
 <form name="editSnippetForm" ng-submit="editSnippet(editSnippetForm)">
   <div class="form-group col-md-12">
     <label for="name">Title</label>
-    <input type="text" class="form-control" id="name" ng-model="title" ng-change="update()">
+    <input type="text" class="form-control" id="name" ng-model="snippet.title">
   </div>
   <div class="form-group col-md-12">
     <label for="description">Short Description</label>
-    <textarea id="description" class="form-control" rows="3" ng-model="shortDescription"></textarea>
+    <textarea id="description" class="form-control" rows="3" ng-model="snippet.shortDescription"></textarea>
   </div>
-  <div class="form-group col-md-6">
+<!--   <div class="form-group col-md-6">
     <label for="topic">Topic</label>
     <select class="form-control" ng-model="snippet.TopicId">
       <option ng-repeat="topic in topics" value="{{topic.id}}">{{topic.name}}</option>
     </select>
-  </div>
-    <div class="form-group col-md-6">
+  </div> -->
+<!--     <div class="form-group col-md-6">
     <label for="language">Language</label>
     <select class="form-control" ng-model="snippet.LanguageId" ng-change="setAceEditorLang(language.name)">
+      <option selected disabled class="hideoption">{{snippet.Language}}</option>
       <option ng-repeat="language in languages" value="{{language.id}}">
         {{language.displayname}}
       </option>
     </select>
-  </div>
+  </div> -->
   <div class="form-group col-md-12">
     <label for="snippet">Snippet</label>
-    <div ui-ace="{ onLoad: aceLoaded }" id="editor" ng-model="code"></div>
+    <div ui-ace="{ onLoad: aceLoaded }" id="editor" ng-model="snippet.code"></div>
   </div>
   <div class="form-group col-md-12">
     <label for="explanation">Explanation</label>
-    <textarea id="explanation" class="form-control" rows="8" ng-model="explanation"></textarea>
+    <textarea id="explanation" class="form-control" rows="8" ng-model="snippet.explanation"></textarea>
   </div>
-  <div class="form-group col-md-12">
+  <!-- <div class="form-group col-md-12">
     <div class="input-group">
       <label class="control-label" >Tags:</label><br />
       <fieldset class="pull-right">
@@ -39,7 +40,7 @@
         </label>
       </fieldsedit
     </div>
-  </div>
+  </div> -->
   <div class="form-group col-md-12 text-right">
     <button class="btn btn-info" ng-click="update()">Update</button>
   </div>

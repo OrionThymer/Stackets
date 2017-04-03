@@ -117,6 +117,15 @@ angular.module('stackets', [
         }
       }
     })
+    .state('edit', {
+      url: '/snippets/:id/edit',
+      views: {
+        'editSnippetView': {
+          controller: 'EditSnippetController',
+          templateUrl: '../partials/edit-snippet.html'
+        }
+      }
+    })
     .state('user-profile', {
       url: '/profile',
       views: {
@@ -132,15 +141,6 @@ angular.module('stackets', [
         'viewSnippetView': {
           controller: 'ViewSnippetController',
           templateUrl: '../partials/view-snippet.html'
-        }
-      }
-    })
-    .state('edit', {
-      url: '/snippets/:id/' + 'edit',
-      views: {
-        'editSnippetView': {
-          controller: 'EditSnippetController',
-          templateUrl: '../partials/edit-snippet.html'
         }
       }
     });
