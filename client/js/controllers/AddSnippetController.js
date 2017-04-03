@@ -9,6 +9,9 @@ angular.module('stackets.addSnippet', ['ui.ace'])
     $scope.code = '';
     $scope.ace = 'javascript';
 
+    var activeUser = Snippets.getUser();
+    var userUrl = activeUser.url;
+
     Snippets.getAllTopics().then(function (topics) {
       $scope.topics = topics;
       //console.log('Metadata retrieved from Snippets service: ', JSON.stringify(topics));
@@ -21,13 +24,14 @@ angular.module('stackets.addSnippet', ['ui.ace'])
     Snippets.getAllLanguages().then(function (languages) {
       $scope.languages = languages;
     });
-//the method below will add a snippet using the add snippet form.
+  //the method below will add a snippet using the add snippet form.
     $scope.addSnippet = function (form) {
       this.snippet.snippet = JSON.stringify($scope.code);
       // this.snippet.codeSample = JSON.stringify($scope.codeSample);
       console.log('Explanation:', this.snippet.explanation);
       this.snippet.explanation = JSON.stringify(this.snippet.explanation);
       console.log('Stringified Explanation:', this.snippet.explanation);
+      this.snippet.userUrl = JSON.stringify(userUrl);
       Snippets.addSnippet(this.snippet).then(function(data) {
         $location.path('/snippets/' + data.data.id);
       });

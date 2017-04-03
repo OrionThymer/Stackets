@@ -11,6 +11,7 @@ angular.module('stackets.searchResults', [])
 
 
     Snippets.getAllSnippets().then(function (snippets) {
+      console.log(snippets);
       $scope.data.snippets = snippets;
     });
   });

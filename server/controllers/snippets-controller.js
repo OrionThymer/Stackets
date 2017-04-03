@@ -40,7 +40,8 @@ module.exports = {
             'Topic': snipVals.Topic.dataValues.name,
             'LanguageId': snipVals.LanguageId,
             'Language': snipVals.Language.dataValues.displayname,
-            'Tags': tags
+            'Tags': tags,
+            'userUrl': snipVals.userUrl
           };
         });
 
@@ -156,6 +157,7 @@ module.exports = {
       explanation: req.body.explanation,
       TopicId: Number(req.body.TopicId),  // topicId comes as a string from front-end form
       LanguageId: Number(req.body.LanguageId),  // languageId comes as a string from front-end form
+      userUrl: req.body.userUrl
     };
 
     // tags: { '1': true, '3': true, 9': true }

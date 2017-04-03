@@ -14,7 +14,8 @@ var Snippet = db.define('Snippet', {
   title: Sequelize.STRING,
   snippet: Sequelize.TEXT,
   shortDescription: Sequelize.TEXT,
-  explanation: Sequelize.TEXT
+  explanation: Sequelize.TEXT,
+  userUrl: Sequelize.TEXT
   //id (auto-generated)
   //createdAt (auto-generated)
   //updatedAt (auto-generated)
