@@ -29,19 +29,7 @@ angular.module('stackets', [
     loginState: 'login'
   });
 
-  // var url = 'https://stackets-orion.herokuapp.com/';
-  // var local = 'http://localhost:3000';
-  // RestangularProvider.setBaseUrl(local);
-
   $httpProvider.interceptors.push('authInterceptor');
-
-  // lockProvider.init({
-  //   clientID: 'QRAUurHNRwxKOgSu4Igee9CG2VkjCQVX',
-  //   domain: 'asalem.auth0.com',
-  //   options: {
-  //     _idTokenVerification: false
-  //   }
-  // });
 
   $locationProvider
     .html5Mode({

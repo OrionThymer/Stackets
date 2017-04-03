@@ -93,6 +93,7 @@ angular.module('stackets.services', [])
       });
     };
 
+    //display appropriate navigation bar depending on login state
     $(document).ready(function() {
       if ( !$cookieStore.get('activeUser') ) {
         $('.nav-visibility').css('display', 'none');

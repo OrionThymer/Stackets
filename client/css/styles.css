@@ -7070,9 +7070,6 @@ pre.explanation {
 
 
 /*---------------user profile----------------*/
-#profile-left {
-  /*background-color: red;*/
-}
 
 #profile-pic {
   border: solid 5px #eff0f2;
@@ -7095,12 +7092,6 @@ pre.explanation {
   text-align: center;
   font-weight: bold;
   color: #2C3E50;
-/*  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;*/
-
 }
 
 #profile-right {
@@ -7132,11 +7123,6 @@ pre.explanation {
   text-align: center;
   font-weight: bold;
   color: #2C3E50;
-/*  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;*/
 }
 
 .infoPaneInfo {
@@ -7163,26 +7149,15 @@ pre.explanation {
   display: none !important;
 }
 
-#a0-onestep {
-  /*padding-left: 30px;*/
-}
-
 #a0-widget .a0-equal-viewport .a0-zocial:before, #a0-widget .a0-zocial.a0-icon:before {
     margin-left: 75px;
-    /* width: 100%; */
     font: 80px zocial;
     font-weight: 400;
-    /* float: left; */
-    /* display: inline-block; */
-    /* line-height: 50px; */
     width: 100%;
     cursor: pointer;
     text-align: center;
-    /* background: rgba(0,0,0,.3); */
-    /* -webkit-transition: all .2s ease; */
     -moz-transition: all .2s ease;
     transition: all .2s ease;
-
 }
 
 
