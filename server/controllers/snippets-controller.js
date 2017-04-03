@@ -179,5 +179,35 @@ module.exports = {
 
         res.status(201).json(data);
       });
-  }
+  },
+
+  delete: function(req, res) {
+    db.Snippet.destroy({where: { id: Number(req.params.id)}})
+      .then(function(res) {
+        res.status(200).send('Snippet deleted successfully')
+      })
+      .catch(function(err) {
+        res.status(400).send(err)
+      })
+  }, 
+
+  update: function(req, res) {
+    console.log('Update is working')
+    db.Snippet.update(req.body, {
+      fields: req.body.title,
+      where: {id: Number(req.params.id)} })
+      .then(function(res) {
+        res.status(200)
+      .send('Snippet edited successfully')})
+      .catch(function(err) {
+        res.status(400).send(err)
+      })
+    }
 };
+
+          // title: req.body.title || snippet.title,
+          // snippet: req.body.snippet || snippet.snippet,
+          // shortDescription: req.body.shortDescription || snippet.shortDescription,
+          // explanation: req.body.explanation || snippet.explanation,
+          // TopicId: Number(req.body.TopicId) || Number(snippet.TopicId), 
+          // LanguageId: Number(req.body.LanguageId) || Number(snippet.LanguageId)

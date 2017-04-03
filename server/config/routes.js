@@ -44,6 +44,13 @@ module.exports = function(app, express) {
     res.redirect('/');
   });
 
+  //delete snippet
+  app.delete('/api/snippets/:id', snippetsController.delete);
+  //update snippet
+  app.put('/api/snippets/:id' + '/edit', snippetsController.update);
+
+  // //edit snippet
+  // app.get('/api/snippets/:id', snippetsController.edit);
 
   //add user to User table
   // app.post('/api/users', userController.post);
