@@ -179,5 +179,29 @@ module.exports = {
 
         res.status(201).json(data);
       });
-  }
+  },
+
+  delete: function(req, res) {
+
+    db.Snippet.destroy({where: { id: Number(req.params.id)}})
+      .then(function(res) {
+        res.status(200).send('Snippet deleted successfully');
+      })
+      .catch(function(err) {
+        res.status(400).send(err);
+      });
+    },
+
+    edit: function(req, res) {
+      console.log('Update is working');
+      db.Snippet.update(req.body, {
+        fields: Object.keys(req.body),
+        where: {id: Number(req.params.id)} })
+        .then(function(res) {
+          res.status(200)
+        .send('Snippet edited successfully')})
+        .catch(function(err) {
+          res.status(400).send(err);
+        })
+      }
 };

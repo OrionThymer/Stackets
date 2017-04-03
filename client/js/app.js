@@ -14,6 +14,7 @@ angular.module('stackets', [
   'stackets.featuredSnippet',
   'stackets.login',
   'stackets.profile',
+  'stackets.editSnippet',
   'auth0',
   'ui.ace'
   // 'auth0.lock',
@@ -113,6 +114,15 @@ angular.module('stackets', [
         'addSnippetView': {
           controller: 'AddSnippetController',
           templateUrl: '../partials/add-snippet.html'
+        }
+      }
+    })
+    .state('edit', {
+      url: '/snippets/:id/edit',
+      views: {
+        'editSnippetView': {
+          controller: 'EditSnippetController',
+          templateUrl: '../partials/edit-snippet.html'
         }
       }
     })

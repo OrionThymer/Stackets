@@ -1,7 +1,7 @@
 //this controller generates the view of each individual snippet with all the items related to it such as title, topic, language, code sample, etc.
 
 angular.module('stackets.view', [])
-  .controller('ViewSnippetController', function ($scope, Snippets, $stateParams) {
+  .controller('ViewSnippetController', function ($scope, Snippets, $stateParams, $state, $http) {
     console.log('Viewing Snippet No. ', $stateParams.id);
     $scope.snippet = {};
     $scope.code = '';
@@ -35,7 +35,7 @@ angular.module('stackets.view', [])
     // ui-ace @ https://www.npmjs.com/package/angular-ui-ace
     // CDN @ https://cdnjs.com/libraries/ace/
     // Editor font size
-      document.getElementById('editor').style.fontSize='12px';
+      document.getElementById('editor').style.fontSize='18px';
       // Options
       var _session = _editor.getSession();
       var _renderer = _editor.renderer;
@@ -61,7 +61,7 @@ angular.module('stackets.view', [])
     // ui-ace @ https://www.npmjs.com/package/angular-ui-ace
     // CDN @ https://cdnjs.com/libraries/ace/
     // Editor font size
-      document.getElementById('editor').style.fontSize='12px';
+      document.getElementById('editor').style.fontSize='18px';
       // Options
       var _session = _editor.getSession();
       var _renderer = _editor.renderer;
@@ -80,4 +80,17 @@ angular.module('stackets.view', [])
         // $scope.codeSample = _session.getValue();
       // });
     };
+
+    //DELETE snippet
+    $scope.deleteSnippet = function() {
+      $http.delete('/api/snippets/' + $stateParams.id);
+      $state.go('home');
+    };
+
+    //EDIT snippet
+    $scope.editSnippet = function() {
+      $state.go('edit', {id: $stateParams.id});
+    };
+
+
   });
