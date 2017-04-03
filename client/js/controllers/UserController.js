@@ -10,5 +10,9 @@ angular.module('stackets.profile', [])
       $scope.data.snippets = snippets;
     });
 
+    // $scope.data.snippets.filter(function(snippet) {
+    //   //snippet.userUrl
+    // );
+
 
   });

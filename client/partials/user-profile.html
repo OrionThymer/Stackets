@@ -30,7 +30,7 @@
         <br>
             <div class="row infoPaneInfo">
               <div class="col-xs-12">
-                Snippets Created: {{data.snippets.length}}
+                Snippets Created: {{userSnippets.length}}
               </div>
               <div class="col-xs-12">
                 Comments: 32
@@ -89,7 +89,7 @@
       </thead>
       <tbody>
        <!-- -->
-        <tr ng-repeat='snippet in data.snippets | filter:currentUser.nickname'>
+        <tr ng-repeat='snippet in userSnippets = (data.snippets | filter:currentUser.nickname)'>
           <td><a href="/snippets/{{snippet.id}}">{{snippet.title}}</a></td>
           <td>{{snippet.shortDescription}}</td>
           <td>{{snippet.Language}}</td>
