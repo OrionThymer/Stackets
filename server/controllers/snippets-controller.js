@@ -183,8 +183,9 @@ module.exports = {
       });
   },
 
+  //delete snippet, like a boss
   delete: function(req, res) {
-
+    //Destroy that shiz
     db.Snippet.destroy({where: { id: Number(req.params.id)}})
       .then(function(res) {
         res.status(200).send('Snippet deleted successfully');
@@ -192,18 +193,20 @@ module.exports = {
       .catch(function(err) {
         res.status(400).send(err);
       });
-    },
+  },
 
-    edit: function(req, res) {
-      console.log('Update is working');
-      db.Snippet.update(req.body, {
-        fields: Object.keys(req.body),
-        where: {id: Number(req.params.id)} })
-        .then(function(res) {
-          res.status(200)
-        .send('Snippet edited successfully')})
-        .catch(function(err) {
-          res.status(400).send(err);
-        })
-      }
+  //edit a snippet, like middle management
+  edit: function(req, res) {
+    console.log('Update is working');
+    db.Snippet.update(req.body, {
+      fields: Object.keys(req.body),
+      where: {id: Number(req.params.id)} })
+      .then(function(res) {
+        res.status(200)
+        .send('Snippet edited successfully');
+      })
+      .catch(function(err) {
+        res.status(400).send(err);
+      });
+  }
 };

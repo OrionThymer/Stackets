@@ -13,67 +13,68 @@
           {{ currentUser.html_url }}
           {{ currentUser.email }}
           {{ currentUser.location }}
-
         </div>
       </div>
     </div>
 
-
-
-  <div class="col-xs-12 col-md-3" id="profile-left">
-    <div class="row">
-      <div class="col-xs-12 col-md-3 ThreeD infoPaneIcon" id="infoOne">
+    <div class="col-xs-12 col-md-3" id="profile-left">
+      <div class="row">
+        <div class="col-xs-12 col-md-3 ThreeD infoPaneIcon" id="infoOne">
+        </div>
+      </div>
+      <div class="row ThreeD infoPane">
+        <div class="col-xs-12">
+          <br>
+              <div class="row infoPaneInfo">
+                <div class="col-xs-12">
+                  Snippets Created: {{userSnippets.length}}
+                </div>
+                <div class="col-xs-12">
+                  <!-- TODO: make dis work, work, work, work, work -->
+                  Comments: 32
+                </div>
+              </div>
+        </div>
       </div>
     </div>
-    <div class="row ThreeD infoPane">
-      <div class="col-xs-12">
-        <br>
+    <div class="col-xs-12 col-md-3" id="profile-left">
+      <div class="row">
+        <div class="col-xs-12 col-md-3 ThreeD infoPaneIcon" id="infoTwo">
+        </div>
+      </div>
+      <div class="row ThreeD infoPane">
+        <div class="col-xs-12">
+          <div class="row infoPaneInfo">
+          <br>
+            <div class="col-xs-12">
+              <!-- TODO: make dis work, work, work, work, work -->
+              Favorited Snippets: 21
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-3" id="profile-left">
+      <div class="row">
+        <div class="col-xs-12 col-md-3 ThreeD infoPaneIcon" id="infoThree">
+        </div>
+      </div>
+      <div class="row ThreeD infoPane">
+        <div class="col-xs-12">
+          <br>
             <div class="row infoPaneInfo">
               <div class="col-xs-12">
-                Snippets Created: {{data.snippets.length}}
+                <!-- TODO: make dis work, work, work, work, work -->
+                Upvotes: 45
               </div>
               <div class="col-xs-12">
-                Comments: 32
+                <!-- TODO: make dis work, work, work, work, work -->
+                Answers: 39
               </div>
             </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-12 col-md-3" id="profile-left">
-    <div class="row">
-      <div class="col-xs-12 col-md-3 ThreeD infoPaneIcon" id="infoTwo">
-      </div>
-    </div>
-    <div class="row ThreeD infoPane">
-      <div class="col-xs-12">
-        <div class="row infoPaneInfo">
-        <br>
-          <div class="col-xs-12">
-            Favorited Snippets: 21
-          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-xs-12 col-md-3" id="profile-left">
-    <div class="row">
-      <div class="col-xs-12 col-md-3 ThreeD infoPaneIcon" id="infoThree">
-      </div>
-    </div>
-    <div class="row ThreeD infoPane">
-      <div class="col-xs-12">
-        <br>
-          <div class="row infoPaneInfo">
-            <div class="col-xs-12">
-              Upvotes: 45
-            </div>
-            <div class="col-xs-12">
-              Answers: 39
-            </div>
-          </div>
-      </div>
-    </div>
-  </div>
   </div>
   <div class="col-xs-12 col-md-12">
     <h1>My Contributions</h1>
@@ -88,15 +89,14 @@
         <th>Tags</th>
       </thead>
       <tbody>
-       <!-- -->
-        <tr ng-repeat='snippet in data.snippets | filter:currentUser.nickname'>
+        <tr ng-repeat='snippet in userSnippets = (data.snippets | filter:currentUser.nickname)'>
           <td><a href="/snippets/{{snippet.id}}">{{snippet.title}}</a></td>
           <td>{{snippet.shortDescription}}</td>
           <td>{{snippet.Language}}</td>
           <td>{{snippet.Topic}}</td>
           <td><span class="label label-default tag" ng-repeat='tag in snippet.Tags'>{{tag.tag}}</span></td>
-      </tr>
-    </tbody>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>
