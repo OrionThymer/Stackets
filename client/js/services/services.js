@@ -22,6 +22,7 @@ angular.module('stackets.services', [])
     };
 
     var addSnippet = function (snippet) {
+      console.log(snippet);
       return $http({
         method: 'POST',
         url: '/api/snippets',
